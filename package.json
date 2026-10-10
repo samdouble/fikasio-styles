@@ -1,0 +1,39 @@
+{
+  "name": "@fikasio/styles",
+  "version": "0.1.0",
+  "description": "Shared design tokens for fikas.io web and mobile",
+  "author": "samdouble",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/samdouble/fikasio-styles.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samdouble/fikasio-styles/issues"
+  },
+  "homepage": "https://github.com/samdouble/fikasio-styles#readme",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "rm -rf ./dist && npm run build",
+    "test": "node --test src/index.test.ts"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
