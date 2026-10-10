@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "Shared design tokens for fikas.io web and mobile",
   "author": "samdouble",
-  "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -31,6 +30,7 @@
     "test": "node --test src/index.test.ts"
   },
   "devDependencies": {
+    "oxlint": "^1.87.0",
     "typescript": "^7.0.2"
   },
   "engines": {

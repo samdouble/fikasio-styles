@@ -1,0 +1,19 @@
+name: Commitlint
+
+on: [pull_request]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  commitlint:
+    if: github.actor != 'dependabot[bot]'
+    name: Commitlint
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Commitlint
+        uses: wagoid/commitlint-github-action@v6

@@ -1,0 +1,61 @@
+name: Checks
+
+on: [pull_request]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        node-version: ['24.18.0']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Tests
+        run: npm run test
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
+        with:
+          file: coverage/lcov.info
+      - name: Visual Regression Tests
+        run: |
+          npx playwright install --with-deps
+          npm run test-ct
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-snapshots
+          path: test-results
+      - name: Build
+        run: npm run build
+      - name: Verify tarball includes dist
+        run: |
+          npm pack --dry-run --json | node --input-type=module -e '
+            const chunks = [];
+            for await (const chunk of process.stdin) chunks.push(chunk);
+            const pack = JSON.parse(Buffer.concat(chunks).toString());
+            const files = (Array.isArray(pack) ? pack[0] : pack).files.map((f) => f.path);
+            const required = ["dist/index.js", "dist/index.mjs"];
+            const missing = required.filter((f) => !files.includes(f));
+            if (missing.length) {
+              console.error("Package tarball is missing:", missing.join(", "));
+              console.error("Packed files:\n" + files.map((f) => `  ${f}`).join("\n"));
+              process.exit(1);
+            }
+            console.log("Tarball includes required dist files.");
+          '
