@@ -6,6 +6,13 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/samdouble/fikasio-styles#readme",
+  "scripts": {
+    "build": "tsc",
+    "lint": "oxlint ./src",
+    "prepublishOnly": "rm -rf ./dist && npm run build",
+    "test": "node --test src/index.test.ts"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -22,12 +29,6 @@
   },
   "bugs": {
     "url": "https://github.com/samdouble/fikasio-styles/issues"
-  },
-  "homepage": "https://github.com/samdouble/fikasio-styles#readme",
-  "scripts": {
-    "build": "tsc",
-    "prepublishOnly": "rm -rf ./dist && npm run build",
-    "test": "node --test src/index.test.ts"
   },
   "devDependencies": {
     "oxlint": "^1.87.0",

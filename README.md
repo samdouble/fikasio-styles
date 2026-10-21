@@ -2,6 +2,14 @@
 
 Design tokens shared by the fikas.io web app and the React Native app. The package has no React or DOM dependency. Each app applies the same values in its own styling system.
 
+[![CI](https://github.com/samdouble/fikasio-styles/actions/workflows/checks.yml/badge.svg)](https://github.com/samdouble/fikasio-styles/actions/workflows/checks.yml?branch=master)
+[![Coverage Status](https://coveralls.io/repos/samdouble/fikasio-styles/badge.svg?branch=master&service=github)](https://coveralls.io/github/samdouble/fikasio-styles?branch=master)
+[![Socket Badge](https://badge.socket.dev/npm/package/@fikasio/styles/latest)](https://badge.socket.dev/npm/package/@fikasio/styles/latest)
+
+[![Node.js](https://img.shields.io/badge/Node.js-6DA55F?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)](https://www.typescriptlang.org/)
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff)](https://www.npmjs.com/)
+
 ## Installation
 
 ```
