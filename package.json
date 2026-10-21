@@ -11,7 +11,7 @@
     "build": "tsc",
     "lint": "oxlint ./src",
     "prepublishOnly": "rm -rf ./dist && npm run build",
-    "test": "node --test src/index.test.ts"
+    "test": "mkdir -p coverage && node --experimental-config-file=node.config.json src/index.test.ts"
   },
   "exports": {
     ".": {
@@ -31,6 +31,7 @@
     "url": "https://github.com/samdouble/fikasio-styles/issues"
   },
   "devDependencies": {
+    "@types/node": "^26.6.5",
     "oxlint": "^1.87.0",
     "typescript": "^7.0.2"
   },

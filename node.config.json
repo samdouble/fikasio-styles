@@ -1,0 +1,12 @@
+{
+  "$schema": "https://nodejs.org/dist/latest-v24.x/docs/node-config-schema.json",
+  "test": {
+    "experimental-test-coverage": true,
+    "test-coverage-include": "src/**/*.ts",
+    "test-coverage-lines": 100,
+    "test-coverage-branches": 100,
+    "test-coverage-functions": 100,
+    "test-reporter": ["spec", "lcov"],
+    "test-reporter-destination": ["stdout", "coverage/lcov.info"]
+  }
+}
