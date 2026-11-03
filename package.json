@@ -1,6 +1,6 @@
 {
   "name": "@fikasio/styles",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Shared design tokens for fikas.io web and mobile",
   "author": "samdouble",
   "type": "module",
